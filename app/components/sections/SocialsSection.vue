@@ -1,0 +1,167 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+
+type SocialLink = {
+  name: string;
+  label: string;
+  description: string;
+  action: string;
+  href: string;
+  icon: string;
+  iconStyle: string;
+  actionStyle: string;
+  hoverStyle: string;
+  external: boolean;
+};
+
+const socialsSection = ref<HTMLElement | null>(null);
+const isVisible = ref(false);
+
+let observer: IntersectionObserver | null = null;
+
+const socialLinks: SocialLink[] = [
+  {
+    name: "YouTube",
+    label: "// MAIN STREAM",
+    description:
+      "生配信、技術系トーク、日々のアーカイブ、Vlog動画や商品紹介動画を公開しています。チャンネル登録してパケットの受信待機をお願いします！",
+    action: "チャンネルを見る",
+    href: "https://youtube.com/@shiomiolog",
+    icon: "fa-brands fa-youtube",
+    iconStyle: "bg-red-50 text-red-500",
+    actionStyle: "text-red-500",
+    hoverStyle: "hover:border-red-500/20 hover:bg-red-50/[0.01]",
+    external: true,
+  },
+  {
+    name: "X (Twitter)",
+    label: "// INFRA LOG",
+    description:
+      "日々のつぶやきや、情報通信技術・情報法に関する話題、配信スケジュール、活動のお知らせなどを発信しています。",
+    action: "ポストを見る",
+    href: "https://x.com/shiomiolog",
+    icon: "fa-brands fa-x-twitter",
+    iconStyle: "bg-slate-900 text-white",
+    actionStyle: "text-slate-800",
+    hoverStyle: "hover:border-slate-900/20 hover:bg-slate-900/[0.01]",
+    external: true,
+  },
+  {
+    name: "GitHub",
+    label: "// REPOSITORY",
+    description:
+      "Webサイトやツールなど、制作・開発しているソフトウェアのソースコードを公開しています。",
+    action: "GitHubを見る",
+    href: "https://github.com/shiomiolog",
+    icon: "fa-brands fa-github",
+    iconStyle: "bg-slate-800 text-white",
+    actionStyle: "text-[#00CCFF]",
+    hoverStyle: "hover:border-[#00CCFF]/20 hover:bg-cyan-50/[0.01]",
+    external: true,
+  },
+  {
+    name: "Blog",
+    label: "// BLOG",
+    description:
+      "日々の出来事や活動のお知らせ、学んだこと、イベントへの参加記録などを文章で発信しています。",
+    action: "ブログを読む",
+    href: "https://blog.shiomiolog.com/",
+    icon: "fa-solid fa-book-open",
+    iconStyle: "bg-amber-500 text-white",
+    actionStyle: "text-amber-600",
+    hoverStyle: "hover:border-amber-500/20 hover:bg-amber-50/[0.01]",
+    external: false,
+  },
+  {
+    name: "shiomiolog Circle",
+    label: "// CIRCLE",
+    description:
+      "同人サークル「shiomiolog」の活動案内や、同人誌・制作物、イベントへの参加情報を掲載しています。",
+    action: "サークルサイトを見る",
+    href: "https://circle.shiomiolog.com/",
+    icon: "fa-solid fa-pen-nib",
+    iconStyle: "bg-violet-500 text-white",
+    actionStyle: "text-violet-600",
+    hoverStyle: "hover:border-violet-500/20 hover:bg-violet-50/[0.01]",
+    external: false,
+  },
+];
+
+onMounted(() => {
+  if (!socialsSection.value) return;
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      isVisible.value = entry?.isIntersecting ?? false;
+    },
+    { threshold: 0.15 },
+  );
+
+  observer.observe(socialsSection.value);
+});
+
+onUnmounted(() => {
+  observer?.disconnect();
+});
+</script>
+
+<template>
+  <section id="socials" ref="socialsSection"
+    class="relative z-10 bg-white px-6 py-24 font-sans antialiased transition-all duration-[1000ms] ease-out transform"
+    :class="isVisible
+        ? 'opacity-100 translate-y-0'
+        : 'opacity-0 translate-y-12'
+      ">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 flex flex-col items-start select-none">
+        <div class="mb-4 h-1 w-12 rounded-full bg-gradient-to-r from-[#00CCFF] to-[#081C44]"></div>
+
+        <h2 class="text-4xl font-bold leading-none tracking-wider text-[#081C44] md:text-5xl">
+          Socials &amp; Links
+        </h2>
+
+        <p class="pt-3 text-xs font-bold tracking-widest text-slate-400">
+          ソーシャルメディア・関連サイト
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        <a v-for="item in socialLinks" :key="item.name" :href="item.href" :target="item.external ? '_blank' : undefined"
+          :rel="item.external ? 'noopener noreferrer' : undefined"
+          class="group relative flex flex-col gap-6 overflow-hidden rounded-[2.5rem] border border-slate-100 bg-slate-50/60 p-8 shadow-[0_15px_45px_rgba(8,28,68,0.01)] transition-all duration-300 hover:-translate-y-1 md:flex-row md:items-center md:justify-between md:p-10"
+          :class="item.hoverStyle">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-start">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-xl"
+              :class="item.iconStyle">
+              <i :class="item.icon"></i>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex flex-wrap items-center gap-3">
+                <h3 class="text-lg font-bold text-[#081C44]">
+                  {{ item.name }}
+                </h3>
+
+                <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  {{ item.label }}
+                </span>
+              </div>
+
+              <p class="max-w-3xl text-xs font-medium leading-relaxed text-slate-500 md:text-sm">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+
+          <span class="inline-flex shrink-0 items-center gap-2 text-xs font-bold tracking-wider"
+            :class="item.actionStyle">
+            {{ item.action }}
+
+            <i class="fa-solid fa-arrow-right-long text-[10px] transition-transform group-hover:translate-x-1"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</template>
