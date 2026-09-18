@@ -26,7 +26,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div
-          class="bg-slate-50/60 border border-slate-100 p-8 rounded-[2.5rem] shadow-[0_15px_45px_rgba(8,28,68,0.02)] flex flex-col justify-between items-start space-y-6 hover:border-[#00CCFF]/20 transition-all group"
+          class="cat-ear-card bg-slate-50/60 border border-slate-100 p-8 rounded-[2.5rem] shadow-[0_15px_45px_rgba(8,28,68,0.02)] flex flex-col justify-between items-start space-y-6 hover:border-[#00CCFF]/20 transition-all group"
         >
           <div class="space-y-3">
             <h3
@@ -51,7 +51,7 @@
         </div>
 
         <div
-          class="bg-slate-50/60 border border-slate-100 p-8 rounded-[2.5rem] shadow-[0_15px_45px_rgba(8,28,68,0.02)] flex flex-col justify-between items-start space-y-6 hover:border-[#00CCFF]/20 transition-all group"
+          class="cat-ear-card bg-slate-50/60 border border-slate-100 p-8 rounded-[2.5rem] shadow-[0_15px_45px_rgba(8,28,68,0.02)] flex flex-col justify-between items-start space-y-6 hover:border-[#00CCFF]/20 transition-all group"
         >
           <div class="space-y-3">
             <h3
@@ -72,6 +72,27 @@
           >
             詳しく見る
             <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+          </NuxtLink>
+        </div>
+
+        <div
+          class="cat-ear-card bg-gradient-to-br from-[#F3FBFF] to-[#F7F8FF] border border-[#00CCFF]/15 p-8 rounded-[2.5rem] shadow-[0_15px_45px_rgba(8,28,68,0.03)] flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:col-span-2 hover:border-[#00CCFF]/30 transition-all group"
+        >
+          <div class="space-y-3 max-w-3xl">
+            <h3 class="text-lg font-black text-[#081C44] flex items-center gap-2">
+              <i class="fa-solid fa-user-shield text-[#00CCFF] text-sm" aria-hidden="true"></i>
+              カスタマーハラスメント等への対応方針
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-loose font-medium">
+              誹謗中傷、過度な要求、つきまといその他の迷惑行為から、安全で安心できる活動・交流環境を守るための考え方と対応を掲載しています。
+            </p>
+          </div>
+          <NuxtLink
+            to="/customer-harassment"
+            class="shrink-0 inline-flex items-center gap-2 rounded-full bg-[#081C44] px-6 py-3 text-xs font-bold text-white hover:bg-[#00CCFF] hover:text-[#081C44] transition-colors tracking-wider font-sans"
+          >
+            方針を見る
+            <i class="fa-solid fa-arrow-right-long text-[10px]" aria-hidden="true"></i>
           </NuxtLink>
         </div>
       </div>

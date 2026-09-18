@@ -45,6 +45,20 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 
+const description = "汐猫みおの活動、配信、3Dモデルなどに関する最新情報を掲載しています。";
+
+useSeoMeta({
+  title: "最新情報 | 汐猫みお Official Site",
+  description,
+  ogTitle: "最新情報 | 汐猫みお Official Site",
+  ogDescription: description,
+  ogImage: "/ogp-image.png",
+  ogType: "website",
+  twitterCard: "summary_large_image",
+  twitterSite: "@shiomiolog",
+  twitterCreator: "@shiomiolog",
+});
+
 const router = useRouter();
 
 // ★【リファクタリング】スキャン対象を '/news/posts/' 以下に限定するロジックに変更

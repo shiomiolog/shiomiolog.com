@@ -5,6 +5,7 @@
         <NuxtPage />
       </div>
     </NuxtLayout>
+    <PeekChibi />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 @import url("https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=BIZ+UDPGothic:wght@400;700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 
 body {
+  font-family: "BIZ UDPGothic", sans-serif;
   letter-spacing: 0.03em;
 }
 
@@ -19,5 +21,94 @@ p {
   font-size: 16px;
   line-height: 1.75;
   color: #334155;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 9999;
+  transform: translateY(-160%);
+  border-radius: 9999px;
+  background: #081c44;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid #00ccff;
+  outline-offset: 4px;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+.cat-ear-card {
+  --cat-ear-color: #dff6ff;
+  position: relative;
+}
+
+.cat-ear-card::before,
+.cat-ear-card::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  z-index: 0;
+  width: 30px;
+  height: 24px;
+  background: var(--cat-ear-color);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(0 -1px 0 rgb(0 204 255 / 0.18));
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.cat-ear-card::before {
+  left: 2rem;
+  transform: rotate(-6deg);
+}
+
+.cat-ear-card::after {
+  right: 2rem;
+  transform: rotate(6deg);
+}
+
+@media (max-width: 640px) {
+  .cat-ear-card::before,
+  .cat-ear-card::after {
+    top: -10px;
+    width: 24px;
+    height: 19px;
+  }
+
+  .cat-ear-card::before {
+    left: 1.5rem;
+  }
+
+  .cat-ear-card::after {
+    right: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 </style>

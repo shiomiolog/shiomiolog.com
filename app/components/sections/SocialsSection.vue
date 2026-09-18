@@ -108,13 +108,13 @@ onUnmounted(() => {
 
 <template>
   <section id="socials" ref="socialsSection"
-    class="relative z-10 bg-white px-6 py-24 font-sans antialiased transition-all duration-[1000ms] ease-out transform"
+    class="relative z-10 bg-white px-6 py-20 font-sans antialiased transition-all duration-[1000ms] ease-out transform"
     :class="isVisible
         ? 'opacity-100 translate-y-0'
         : 'opacity-0 translate-y-12'
       ">
     <div class="mx-auto max-w-6xl">
-      <div class="mb-16 flex flex-col items-start select-none">
+      <div class="mb-12 flex flex-col items-start select-none">
         <div class="mb-4 h-1 w-12 rounded-full bg-gradient-to-r from-[#00CCFF] to-[#081C44]"></div>
 
         <h2 class="text-4xl font-bold leading-none tracking-wider text-[#081C44] md:text-5xl">
@@ -126,39 +126,40 @@ onUnmounted(() => {
         </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-6">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         <a v-for="item in socialLinks" :key="item.name" :href="item.href" :target="item.external ? '_blank' : undefined"
           :rel="item.external ? 'noopener noreferrer' : undefined"
-          class="group relative flex flex-col gap-6 overflow-hidden rounded-[2.5rem] border border-slate-100 bg-slate-50/60 p-8 shadow-[0_15px_45px_rgba(8,28,68,0.01)] transition-all duration-300 hover:-translate-y-1 md:flex-row md:items-center md:justify-between md:p-10"
+          class="cat-ear-card group relative flex h-full flex-col gap-4 rounded-[1.75rem] border border-slate-100 bg-slate-50/60 p-6 shadow-[0_12px_35px_rgba(8,28,68,0.02)] transition-all duration-300 hover:-translate-y-1"
           :class="item.hoverStyle">
-          <div class="flex flex-col gap-5 sm:flex-row sm:items-start">
-            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-xl"
+          <div class="flex items-start gap-4">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-base"
               :class="item.iconStyle">
-              <i :class="item.icon"></i>
+              <i :class="item.icon" aria-hidden="true"></i>
             </div>
 
-            <div class="space-y-3">
-              <div class="flex flex-wrap items-center gap-3">
-                <h3 class="text-lg font-bold text-[#081C44]">
+            <div class="min-w-0 space-y-2">
+              <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                <h3 class="text-base font-bold text-[#081C44]">
                   {{ item.name }}
                 </h3>
 
-                <span class="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <span class="font-mono text-[9px] font-bold uppercase tracking-widest text-slate-400">
                   {{ item.label }}
                 </span>
               </div>
 
-              <p class="max-w-3xl text-xs font-medium leading-relaxed text-slate-500 md:text-sm">
+              <p class="text-xs font-medium leading-relaxed text-slate-500">
                 {{ item.description }}
               </p>
             </div>
           </div>
 
-          <span class="inline-flex shrink-0 items-center gap-2 text-xs font-bold tracking-wider"
+          <span class="mt-auto inline-flex shrink-0 items-center justify-end gap-2 pt-1 text-[11px] font-bold tracking-wider"
             :class="item.actionStyle">
             {{ item.action }}
 
-            <i class="fa-solid fa-arrow-right-long text-[10px] transition-transform group-hover:translate-x-1"></i>
+            <i class="fa-solid fa-arrow-right-long text-[10px] transition-transform group-hover:translate-x-1"
+              aria-hidden="true"></i>
           </span>
         </a>
       </div>

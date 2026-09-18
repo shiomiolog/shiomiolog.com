@@ -47,6 +47,7 @@
         <div class="relative w-full flex justify-center py-8 px-4">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSd7lp04oQ4OMzpNU8ahxrolROdLhPpqtr8JChwwp_MPbCge7g/viewform?embedded=true"
+            title="汐猫みお お問い合わせフォーム"
             width="100%"
             height="1600"
             frameborder="0"
@@ -73,3 +74,20 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const description =
+  "汐猫みおへのお仕事のご依頼、コラボレーションのご相談、その他お問い合わせを受け付けています。";
+
+useSeoMeta({
+  title: "お問い合わせ | 汐猫みお Official Site",
+  description,
+  ogTitle: "お問い合わせ | 汐猫みお Official Site",
+  ogDescription: description,
+  ogImage: "/ogp-image.png",
+  ogType: "website",
+  twitterCard: "summary_large_image",
+  twitterSite: "@shiomiolog",
+  twitterCreator: "@shiomiolog",
+});
+</script>

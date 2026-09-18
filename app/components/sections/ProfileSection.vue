@@ -1,5 +1,4 @@
 <template>
-  <a id="profile"></a>
   <section id="profile" class="py-12 md:py-20 px-6 relative z-45 shadow-[0_25px_50px_rgba(8,28,68,0.03)]">
     <div class="max-w-6xl mx-auto">
       <div class="mb-16 flex flex-col items-start select-none">
@@ -15,7 +14,7 @@
       </div>
 
       <div
-        class="bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_20px_50px_rgba(8,28,68,0.05)] p-8 md:p-12 lg:p-16">
+        class="cat-ear-card bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_20px_50px_rgba(8,28,68,0.05)] p-8 md:p-12 lg:p-16">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div class="lg:col-span-7 space-y-8">
             <div class="text-center lg:text-left">
@@ -51,18 +50,21 @@
             </div>
 
             <div class="w-full h-[440px] flex items-center justify-center overflow-hidden mb-6">
-              <img :src="activeImage" loading="lazy" decoding="async" alt="汐猫みお"
+              <NuxtImg :src="activeImage" format="webp" quality="82" width="720" height="1080" loading="lazy"
+                decoding="async" :alt="`汐猫みお ${activeLabel}`"
                 class="max-h-full max-w-full object-contain drop-shadow-[0_15px_30px_rgba(8,28,68,0.12)] transition-all duration-300" />
             </div>
 
             <div class="flex gap-3 justify-center items-center">
-              <button v-for="img in assetList" :key="img.src" @click="activeImage = img.src"
+              <button v-for="img in assetList" :key="img.src" type="button" @click="activeImage = img.src"
                 class="w-12 h-12 rounded-full overflow-hidden border-2 bg-white transition-all shadow-sm relative group"
+                :aria-label="`${img.label}の画像を表示`" :aria-pressed="activeImage === img.src"
                 :class="activeImage === img.src
                   ? 'border-[#00CCFF] scale-110 shadow-md ring-2 ring-[#00CCFF]/20'
                   : 'border-slate-200 opacity-60 hover:opacity-100'
                   " :title="img.label">
-                <img :src="img.src" class="w-full h-full object-cover object-top" />
+                <NuxtImg :src="img.src" format="webp" quality="72" width="96" height="96" alt=""
+                  class="w-full h-full object-cover object-top" />
               </button>
             </div>
           </div>
@@ -73,15 +75,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
-const activeImage = ref("/images/char-hero.webp");
+const activeImage = ref("/images/char-hero-current.png");
 
 const assetList = [
-  { src: "/images/char-hero.webp", label: "通常衣装" },
-  { src: "/images/char-relax.webp", label: "リラックス" },
-  { src: "/images/char-up.webp", label: "アップ" },
+  { src: "/images/char-hero-current.png", label: "通常衣装" },
+  { src: "/images/char-relax-current.png", label: "リラックス" },
+  { src: "/images/char-up-current.png", label: "アップ" },
 ];
+
+const activeLabel = computed(
+  () => assetList.find((image) => image.src === activeImage.value)?.label ?? "プロフィール画像",
+);
 
 const profileItems = [
   {

@@ -2,9 +2,10 @@
   <div
     class="bg-white min-h-screen text-slate-800 animate-fade-in font-sans antialiased flex flex-col"
   >
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
     <Header />
 
-    <div
+    <main id="main-content" tabindex="-1"
       class="max-w-[1440px] mx-auto pt-44 pb-32 px-6 md:px-12 w-full flex flex-col items-center flex-1"
     >
       <div class="w-full max-w-4xl">
@@ -34,11 +35,11 @@
           {{ route.meta.title }}
         </h1>
 
-        <main
+        <div
           class="py-10 text-sm md:text-base text-slate-600 leading-loose space-y-6 font-medium border-b border-slate-100"
         >
           <slot />
-        </main>
+        </div>
 
         <div class="mt-16 flex justify-center">
           <NuxtLink
@@ -53,7 +54,7 @@
           </NuxtLink>
         </div>
       </div>
-    </div>
+    </main>
 
     <Footer />
   </div>

@@ -63,7 +63,8 @@
           md:-translate-y-1/2
         ">
         <div class="hero-character flex h-full items-center justify-center">
-          <img src="/images/animation.webp" alt="汐猫みお" fetchpriority="high" decoding="async"
+          <img src="/images/animation.webp" alt="汐猫みお" width="941" height="1672" fetchpriority="high"
+            decoding="async"
             class="h-full w-auto object-contain">
         </div>
       </div>

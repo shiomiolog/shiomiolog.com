@@ -1,6 +1,9 @@
 <template>
+  <a href="#main-content" class="skip-link">本文へスキップ</a>
   <Header />
-  <slot />
+  <main id="main-content" tabindex="-1">
+    <slot />
+  </main>
   <Footer />
   <ScrollToTop />
 </template>

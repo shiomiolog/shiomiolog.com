@@ -74,6 +74,12 @@
               <li>
                 <NuxtLink to="/contact" class="hover:text-white transition-colors">Contact</NuxtLink>
               </li>
+              <li>
+                <NuxtLink to="/customer-harassment" class="hover:text-white transition-colors">Safety Policy</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/about" class="hover:text-white transition-colors">About Operator</NuxtLink>
+              </li>
             </ul>
           </div>
         </div>
@@ -95,11 +101,16 @@
 
           <span class="hidden text-white/10 sm:inline">|</span>
 
-          <a href="https://mayu2664.jp/" target="_blank" rel="noopener noreferrer"
+          <NuxtLink to="/customer-harassment" class="hover:text-white transition-colors tracking-wider">
+            カスタマーハラスメント等への対応方針
+          </NuxtLink>
+
+          <span class="hidden text-white/10 sm:inline">|</span>
+
+          <NuxtLink to="/about"
             class="font-medium tracking-wider text-slate-500 transition-colors hover:text-slate-300">
-            運営者・研究活動について
-            <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[8px]"></i>
-          </a>
+            運営者について
+          </NuxtLink>
         </div>
 
         <div class="text-xs font-mono text-slate-500 tracking-wider">
