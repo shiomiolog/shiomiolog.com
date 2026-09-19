@@ -12,7 +12,7 @@
         </h2>
 
         <p class="text-xs font-sans font-bold text-slate-400 tracking-widest pt-3">
-          ファンネーム・ハッシュタグ・ファンマーク・コミュニティ
+          ファンネーム・ハッシュタグ・ファンマーク
         </p>
       </div>
 
@@ -93,54 +93,6 @@
           </p>
         </div>
 
-        <!-- ファンサーバー -->
-        <a href="https://discord.gg/GUA9MnEvb6" target="_blank" rel="noopener noreferrer"
-          class="cat-ear-card relative isolate sm:col-span-2 lg:col-span-3 grid gap-6 overflow-visible rounded-[2.5rem] border border-[#00CCFF]/20 bg-gradient-to-br from-[#F6FCFF] via-white to-[#EAF7FF] p-8 shadow-[0_20px_50px_rgba(8,28,68,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-[#00CCFF]/40 hover:shadow-[0_25px_60px_rgba(8,28,68,0.13)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#00CCFF] md:grid-cols-[minmax(0,1fr)_260px] md:items-center md:gap-8 md:p-10 lg:grid-cols-[minmax(0,1fr)_300px] group">
-          <span class="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[2.5rem]" aria-hidden="true">
-            <span class="absolute -left-10 -top-12 h-36 w-36 rounded-full bg-[#00CCFF]/8"></span>
-            <span class="absolute left-[42%] top-8 h-10 w-10 rounded-full bg-[#5E9DF4]/10"></span>
-            <span class="absolute -bottom-16 right-16 h-44 w-44 rounded-full bg-[#00CCFF]/10"></span>
-          </span>
-
-          <div class="relative z-10 space-y-5">
-            <div class="flex flex-wrap items-center gap-3">
-              <div
-                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#081C44] text-xl text-[#00CCFF] shadow-[0_8px_20px_rgba(8,28,68,0.14)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">
-                <i class="fa-brands fa-discord" aria-hidden="true"></i>
-              </div>
-
-              <div>
-                <span
-                  class="mb-1 inline-flex rounded-full bg-[#00CCFF]/10 px-3 py-1 text-[10px] font-bold tracking-wider text-[#087A9A]">
-                  みんなの交流スペース
-                </span>
-                <h3 class="text-xl font-bold font-sans text-[#081C44]">
-                  ファンサーバー
-                </h3>
-              </div>
-            </div>
-
-            <p class="max-w-2xl text-xs font-medium leading-relaxed text-slate-600 md:text-sm">
-              汐猫みおの活動を応援してくださる方のためのコミュニティです。配信や活動のお知らせを受け取ったり、観測者同士で交流したりできます。
-            </p>
-
-            <span
-              class="inline-flex items-center gap-3 rounded-full bg-[#081C44] px-6 py-3 text-sm font-bold tracking-wider text-white shadow-[0_10px_24px_rgba(8,28,68,0.15)] transition-colors duration-300 group-hover:bg-[#00CCFF] group-hover:text-[#081C44]">
-              サーバーに参加する
-              <i class="fa-solid fa-arrow-right-long text-xs transition-transform group-hover:translate-x-1"
-                aria-hidden="true"></i>
-            </span>
-          </div>
-
-          <div class="relative z-10 flex min-h-52 items-end justify-center md:min-h-64 md:justify-end">
-            <span
-              class="absolute bottom-4 left-1/2 h-8 w-48 -translate-x-1/2 rounded-[50%] bg-[#081C44]/10 blur-md"
-              aria-hidden="true"></span>
-            <NuxtImg src="/images/fankit-community-chibi.png" format="webp" loading="lazy" decoding="async"
-              alt="ノートパソコンでファンサーバーに書き込むミニキャラの汐猫みお"
-              class="relative max-h-64 w-auto object-contain drop-shadow-[0_14px_18px_rgba(8,28,68,0.14)] transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1 md:max-h-72" />
-          </div>
-        </a>
       </div>
     </div>
   </section>
